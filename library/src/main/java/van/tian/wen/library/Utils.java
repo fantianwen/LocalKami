@@ -1,7 +1,6 @@
 package van.tian.wen.library;
 
 import android.content.Context;
-import android.os.Environment;
 import android.text.TextUtils;
 
 import java.io.Closeable;

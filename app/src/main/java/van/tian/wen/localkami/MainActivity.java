@@ -21,9 +21,11 @@ import com.couchbase.lite.android.AndroidContext;
 import com.couchbase.lite.util.Log;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
+import van.tian.wen.library.LocalSaver;
 import van.tian.wen.library.LocalSaverManager;
 
 public class MainActivity extends AppCompatActivity
@@ -56,11 +58,18 @@ public class MainActivity extends AppCompatActivity
 
 //        testNoSql();
 
-        LocalSaverManager localSaverManager = LocalSaverManager.getInstance().context(this).keyFile("LOCAL_SAVER").filter("nonono");
+        LocalSaverManager.getInstance().install(this);
 
-        localSaverManager.set("localSaverTester", "Hello,");
+        ArrayList<String> strings = new ArrayList<>();
+        strings.add("dddd");
+        strings.add("second");
+        strings.add("third");
 
-        String localSaverTest = localSaverManager.get("localSaverTester", String.class);
+        LocalSaver dfadfad = new LocalSaver("dfadfad");
+
+        dfadfad.set("localSaverTester", strings);
+
+        String localSaverTest = dfadfad.get("localSaverTester");
 
         android.util.Log.e("localsaver===>", localSaverTest);
 
